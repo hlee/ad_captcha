@@ -8,7 +8,7 @@ $ ->
     $.ajax
       type: 'GET'
       url: "/home/verify"
-      data: "top=" + ui.offset.top + "&left=" + ui.offset.left
+      data: "top=" + ui.position.top + "&left=" + ui.position.left
       success: (data) ->
         if data == 'ok'
           $('#draggable').fadeOut('slow').hide();
