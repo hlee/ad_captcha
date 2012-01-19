@@ -1,3 +1,20 @@
 %h3 Home
 - @users.each do |user|
   %p User: #{link_to user.name, user}
+= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css"
+= stylesheet_link_tag "http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"   
+
+.demo
+  #droppable.ui-widget-header
+    %p Drop here
+  #draggable.ui-widget-content
+    %p Drag me to my target
+
+/ End demo
+.demo-description{:style => "display: none;"}
+  %p Enable any DOM element to be droppable, a target for draggable elements.
+/ End demo-description
+
+  
