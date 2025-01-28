@@ -1,12 +1,22 @@
-- if user_signed_in?
-  %li
-    = link_to('Logout', destroy_user_session_path, :method=>'delete')
-- else
-  %li
-    = link_to('Login', new_user_session_path)
-- if user_signed_in?
-  %li
-    = link_to('Edit account', edit_user_registration_path)
-- else
-  %li
-    = link_to('Sign up', new_user_registration_path)
+%ul.navbar-nav.ms-auto
+  - if user_signed_in?
+    %li.nav-item.dropdown
+      %a.nav-link.dropdown-toggle#userDropdown{"data-bs-toggle": "dropdown", role: "button"}
+        = current_user.name
+      .dropdown-menu.dropdown-menu-end
+        = link_to edit_user_registration_path, class: "dropdown-item" do
+          %i.bi.bi-person
+          Edit Profile
+        .dropdown-divider
+        = button_to destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" do
+          %i.bi.bi-box-arrow-right
+          Logout
+  - else
+    %li.nav-item
+      = link_to new_user_session_path, class: "nav-link" do
+        %i.bi.bi-box-arrow-in-right
+        Login
+    %li.nav-item
+      = link_to new_user_registration_path, class: "nav-link" do
+        %i.bi.bi-person-plus
+        Sign up

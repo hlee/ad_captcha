@@ -1,64 +1,112 @@
-#----------------------------------------------------------------------------
-# Ignore these files when commiting to a git repository
-#
-# The original version of this file is found here:
-# https://github.com/RailsApps/rails3-application-templates/raw/master/files/gitignore.txt
-#
-# Corrections? Improvements? Create a GitHub issue: 
-# http://github.com/RailsApps/rails3-application-templates/issues
-#----------------------------------------------------------------------------
+# See https://help.github.com/articles/ignoring-files for more about ignoring files.
 
-# bundler state
+# Ignore bundler config and downloaded gems
 /.bundle
 /vendor/bundle/
+/vendor/ruby/
 
-# minimal Rails specific artifacts
-db/*.sqlite3
+# Ignore all logfiles and tempfiles
 /log/*
-tmp/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
-# various artifacts
-**.war
-*.rbc
-*.sassc
-.rspec
-.redcar/
-.sass-cache
-/config/config.yml
+# Ignore pidfiles, but keep the directory
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development)
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+# Ignore master key for decrypting credentials
+/config/master.key
+/config/credentials/*.key
+
+# Ignore database configuration
 /config/database.yml
-/coverage.data
-/coverage/
-/db/*.javadb/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Ruby/Rails specific
+*.rbc
+capybara-*.html
+.rspec
+/db/*.sqlite3
 /db/*.sqlite3-journal
-/doc/api/
-/doc/app/
-/doc/features.html
-/doc/specs.html
-/public/cache
-/public/stylesheets/compiled
-/public/system
+/db/*.sqlite3-[0-9]*
+/coverage/
 /spec/tmp/*
-/cache
-/capybara*
-/capybara-*.html
-/gems
-/rerun.txt
-/spec/requests
-/spec/routing
-/spec/views
-/specifications
+*.orig
+rerun.txt
+pickle-email-*.html
 
-# scm revert files
-**.orig
+# Node/Yarn specific
+node_modules/
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
 
-# Mac finder artifacts
+# Asset pipeline and webpacker
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+/public/packs
+/public/packs-test
+/public/assets
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Ruby version/gemset files
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+# Editor/IDE specific files
+/.idea
+/.vscode
+*.swp
+*.swo
+*~
+.project
 .DS_Store
+.env
+nbproject/
+.redcar/
+.sass-cache/
+*.sublime-workspace
+*.sublime-project
 
-# Netbeans project directory
-/nbproject/
+# Ignore documentation
+/doc/
+/.yardoc/
+/rdoc/
 
-# Textmate project files
-/*.tmproj
+# Ignore test files
+/test/tmp/
+/test/version_tmp/
 
-# vim artifacts
-**.swp
+# Ignore Byebug command history file
+.byebug_history
+
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+/public/uploads

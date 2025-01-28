@@ -1,0 +1,8 @@
+#drag-drop-demo.border.rounded.p-3.bg-danger.bg-opacity-10
+  .text-center
+    %i.bi.bi-x-circle.text-danger.fs-1.mb-3
+    %h4.text-danger Verification Failed
+    %p.mb-0 Please try dropping the image in the correct position.
+    %button.btn.btn-outline-danger.mt-3{"data-controller": "drag-drop", "data-action": "click->drag-drop#reset"}
+      %i.bi.bi-arrow-clockwise.me-2
+      Try Again

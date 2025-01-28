@@ -1,0 +1,54 @@
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Custom styles
+header nav ul {
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+// Drag and Drop styles
+.border-dashed {
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.drag-over {
+  border-color: #198754;
+  background-color: rgba(25, 135, 84, 0.1);
+}
+
+.dropped {
+  border-style: solid;
+  border-color: #198754;
+  background-color: rgba(25, 135, 84, 0.1);
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.was-dropped {
+  background-color: #198754;
+  color: white;
+}

@@ -1,20 +1,38 @@
-%h3 Home
-- @users.each do |user|
-  %p User: #{link_to user.name, user}
-= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css"
-= stylesheet_link_tag "http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"
-= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"   
+.container
+  .row.justify-content-center
+    .col-md-8
+      .card.shadow-sm.mb-4
+        .card-header.bg-primary.text-white
+          %h3.mb-0 Welcome to Captcha Demo
+        .card-body
+          - if user_signed_in?
+            %h4.mb-3 Users
+            = turbo_frame_tag "users_list" do
+              - @users.each do |user|
+                .card.mb-2
+                  .card-body
+                    = link_to user_path(user), class: "text-decoration-none" do
+                      .d-flex.align-items-center
+                        %i.bi.bi-person.fs-4.me-2
+                        %span= user.name
 
-.demo
-  #droppable.ui-widget-header
-    %p Drop here
-  #draggable.ui-widget-content
-    %p Drag me to my target
+          .mt-4
+            %h4.mb-3 Drag & Drop Demo
+            #drag-drop-demo.border.rounded.p-3{"data-controller": "drag-drop"}
+              .row
+                .col-md-6.mb-3
+                  #draggable.card.bg-light{"data-drag-drop-target": "draggable", "data-action": "dragstart->drag-drop#dragStart dragend->drag-drop#dragEnd", draggable: "true"}
+                    .card-body.text-center
+                      %i.bi.bi-arrow-right-circle.fs-3.mb-2
+                      %p.mb-0 Drag me
+                
+                .col-md-6.mb-3
+                  #droppable.card.border-dashed{"data-drag-drop-target": "droppable", "data-action": "dragover->drag-drop#dragOver dragleave->drag-drop#dragLeave drop->drag-drop#drop"}
+                    .card-body.text-center
+                      %i.bi.bi-bullseye.fs-3.mb-2
+                      %p.mb-0 Drop here
 
-/ End demo
-.demo-description{:style => "display: none;"}
-  %p Enable any DOM element to be droppable, a target for draggable elements.
-/ End demo-description
-
-  
+          .mt-4
+            .alert.alert-info
+              %i.bi.bi-info-circle.me-2
+              This is a demo application showcasing drag & drop functionality with modern Rails and Hotwire.
